@@ -33,9 +33,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.svg'],
       manifest: {
-        name: 'My Awesome App',
-        short_name: 'MyApp',
-        description: 'My Awesome App description',
+        name: 'Countries Information App',
+        short_name: 'CI-App',
+        description: 'The application is used to search for information about the country',
         theme_color: '#ffffff',
         icons: [
           {
