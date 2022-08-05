@@ -1,0 +1,3 @@
+test: "Test Content"
+array:
+  count: 'not found | quantity: {n}'

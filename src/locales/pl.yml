@@ -1,0 +1,3 @@
+test: "Testowa treść"
+array:
+  count: 'brak | ilość: {n}'
