@@ -6,6 +6,7 @@ import { createHead } from '@vueuse/head'
 import { createI18n } from 'vue-i18n'
 import messages from '@intlify/vite-plugin-vue-i18n/messages'
 import App from './App.vue'
+import 'tw-elements';
 import './style.css'
 
 const routes = setupLayouts(generatedRoutes)

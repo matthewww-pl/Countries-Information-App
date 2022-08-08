@@ -1,8 +1,6 @@
 <script setup lang="ts">
   const { t, locale } = useI18n()
-  const isDark = useDark({
-    selector: 'body',
-  })
+  const isDark = useDark()
   const toggleDark = useToggle(isDark)
 </script>
 <template>
