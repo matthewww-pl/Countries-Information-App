@@ -1,8 +1,9 @@
 <template>
-  <div>
-    <RouterView />
-    <div>
-      [Default Layout]
+  <div class="flex flex-col h-screen">
+    <Navbar/>
+    <div class="flex-grow">
+       <RouterView />
     </div>
-  </div>
+    <Footer/>
+</div>
 </template>

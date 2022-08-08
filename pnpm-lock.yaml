@@ -2,11 +2,13 @@ lockfileVersion: 5.3
 
 specifiers:
   '@intlify/vite-plugin-vue-i18n': ^5.0.1
+  '@popperjs/core': ^2.11.5
   '@vitejs/plugin-vue': ^3.0.0
   '@vueuse/components': ^9.1.0
   '@vueuse/core': ^8.9.4
   '@vueuse/head': ^0.7.6
   autoprefixer: ^10.4.8
+  bootstrap: ^5.2.0
   messages: link:@intlify/vite-plugin-vue-i18n/messages
   postcss: ^8.4.16
   tailwindcss: ^3.1.8
@@ -25,10 +27,12 @@ specifiers:
 
 dependencies:
   '@intlify/vite-plugin-vue-i18n': 5.0.1_vite@3.0.2+vue-i18n@9.2.0
+  '@popperjs/core': 2.11.5
   '@vueuse/components': 9.1.0_vue@3.2.37
   '@vueuse/core': 8.9.4_vue@3.2.37
   '@vueuse/head': 0.7.6_vue@3.2.37
   autoprefixer: 10.4.8_postcss@8.4.16
+  bootstrap: 5.2.0_@popperjs+core@2.11.5
   messages: link:@intlify/vite-plugin-vue-i18n/messages
   postcss: 8.4.16
   tailwindcss: 3.1.8
@@ -1817,6 +1821,14 @@ packages:
   /binary-extensions/2.2.0:
     resolution: {integrity: sha512-jDctJ/IVQbZoJykoeHbhXpOlNBqGNcwXJKJog42E5HDPUwQTSdjCHdihjj0DlnheQ7blbT6dHOafNAiS8ooQKA==}
     engines: {node: '>=8'}
+    dev: false
+
+  /bootstrap/5.2.0_@popperjs+core@2.11.5:
+    resolution: {integrity: sha512-qlnS9GL6YZE6Wnef46GxGv1UpGGzAwO0aPL1yOjzDIJpeApeMvqV24iL+pjr2kU4dduoBA9fINKWKgMToobx9A==}
+    peerDependencies:
+      '@popperjs/core': ^2.11.5
+    dependencies:
+      '@popperjs/core': 2.11.5
     dev: false
 
   /brace-expansion/1.1.11:
