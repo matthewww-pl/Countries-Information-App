@@ -25,6 +25,14 @@ export default defineConfig({
         'vue/macros',
         '@vueuse/head',
         '@vueuse/core',
+        {
+          '@vueuse/integrations/useAxios': [
+            'useAxios',
+          ],
+          '@vueuse/integrations/useCookies': [
+            'useCookies',
+          ],
+        },
       ],
       dts: 'src/auto-imports.d.ts',
       dirs: [

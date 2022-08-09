@@ -1,16 +1,17 @@
 <script setup lang="ts">
-  import { useCookies } from '@vueuse/integrations/useCookies'
+  const cookies = useCookies()
+  
   const { t, locale } = useI18n()
+
   const isDark = useDark()
   const toggleDark = useToggle(isDark)
-  const cookies = useCookies()
 
   watch(isDark, () => {
-    cookies.set('darkMode',isDark.value)
+    cookies.set('darkMode',isDark.value, { maxAge: 60*60*24*7 })
   })
 
   watch(locale, () => {
-    cookies.set('locale', locale.value)
+    cookies.set('locale', locale.value, { maxAge: 60*60*24*7 })
   })
 
   const setLang = (lang: string) =>{

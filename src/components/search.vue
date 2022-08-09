@@ -1,14 +1,15 @@
 <script setup lang="ts">
-  import axios from 'axios'
   const { t } = useI18n()
+
   const search = reactive({
     name: null,
     display: true,
     error: false,
   })
+
   const country = reactive({
     loading: false,
-    data: ref(null),
+    data: ref(),
     error: reactive({
       status: false,
       message: ""
@@ -20,21 +21,28 @@
       search.error = true
       return
     }
+
     search.error = false
+    country.error.status = false
     country.loading = true
-    await axios.get('https://restcountries.com/v3.1/name/'+search.name)
-    .then(res => {
-      country.data = res.data
-      country.loading = false
-    }).catch(error => {
-      country.loading = false
+
+    const { data, isFinished, error} = await useAxios('https://restcountries.com/v3.1/name/'+search.name)
+
+    country.loading = false
+
+    if(isFinished && data.value && !error.value){
+      country.data = data
+    }
+
+    if(isFinished && error.value){
       country.error.status = true;
-      if(error.response.data.status=='404' && error.response.data.message=='Not Found'){
+
+      if(error.value.response.data.status=='404' && error.value.response.data.message=='Not Found'){
         country.error.message = 'notFound'
       }else{
         country.error.message = 'apiError'
       }
-    })
+    }
   }
 </script>
 

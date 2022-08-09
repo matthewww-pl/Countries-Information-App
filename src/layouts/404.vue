@@ -1,5 +1,6 @@
 <script setup lang="ts">
-const { t } = useI18n()
+  const { t } = useI18n()
+  
   useHead({
     title: t('404.title'),
   })

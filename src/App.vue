@@ -1,8 +1,9 @@
 <script setup lang="ts">
-  import { useCookies } from '@vueuse/integrations/useCookies'
-  const { t, locale } = useI18n()
-  const isDark = useDark()
   const cookies = useCookies()
+  
+  const { t, locale } = useI18n()
+  
+  const isDark = useDark()
 
   if(cookies.get('locale')){
     locale.value = cookies.get('locale')

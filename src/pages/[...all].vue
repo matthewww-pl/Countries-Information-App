@@ -1,7 +1,9 @@
 <script setup lang="ts">
   const { t } = useI18n()
+
   const router = useRouter()
 </script>
+
 <template>
   <div>
     <div class="mx-auto px-6 md:px-12 xl:px-32">
