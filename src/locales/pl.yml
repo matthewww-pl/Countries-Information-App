@@ -1,4 +1,16 @@
 title: "Informacje o Kraju"
-test: "Testowa treść"
-array:
-  count: 'brak | ilość: {n}'
+description: "Aplikacja do wyszukiawnia podstawowych informacji o wybranym kraju"
+index:
+  searchH1: "Wyszukaj podstawowe informacje"
+  searchH2: "o wybranym kraju"
+  search: "Wyszukaj"
+search:
+  error:
+    'notFound': "Nie znaleziono takiego kraju, sprawdź wprowadzoną nazwę"
+    'apiError': "Przepraszamy, usługa jest niedostępna.."
+404:
+  title: "404 - Nie znaleziono strony"
+  header: "404 ;/"
+  notFound: "Przepraszamy, nie znaleziono szukanej strony.."
+button:
+  back: "Wstecz"

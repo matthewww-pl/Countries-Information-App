@@ -1,4 +1,16 @@
 title: "Countries Information"
-test: "Test Content"
-array:
-  count: 'not found | quantity: {n}'
+description: "The application is used to search for information about the country"
+index:
+  searchH1: "Search for basic information"
+  searchH2: "about the country"
+  search: "Search"
+search:
+  error:
+    'notFound': "Country not found, check country name"
+    'apiError': "Sorry, service is not available.."
+404:
+  title: "404 - Page not found"
+  header: "404 ;/"
+  notFound: "Sorry, page not found.."
+button:
+  back: "Back"
