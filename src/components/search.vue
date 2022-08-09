@@ -36,12 +36,7 @@
 
     if(isFinished && error.value){
       country.error.status = true;
-
-      if(error.value.response.data.status=='404' && error.value.response.data.message=='Not Found'){
-        country.error.message = 'notFound'
-      }else{
-        country.error.message = 'apiError'
-      }
+      country.error.message = 'notFound'
     }
   }
 </script>

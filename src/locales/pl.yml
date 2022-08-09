@@ -7,7 +7,6 @@ index:
 search:
   error:
     'notFound': "Nie znaleziono takiego kraju, sprawdź wprowadzoną nazwę"
-    'apiError': "Przepraszamy, usługa jest niedostępna.."
 404:
   title: "404 - Nie znaleziono strony"
   header: "404 ;/"

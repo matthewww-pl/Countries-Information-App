@@ -7,7 +7,6 @@ index:
 search:
   error:
     'notFound': "Country not found, check country name"
-    'apiError': "Sorry, service is not available.."
 404:
   title: "404 - Page not found"
   header: "404 ;/"
