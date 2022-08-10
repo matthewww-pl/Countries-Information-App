@@ -28,7 +28,7 @@
         </router-link>
         <ul class="navbar-nav flex flex-col pl-0 list-style-none mr-auto">
           <li class="nav-item p-2">
-            <router-link to="/" class="nav-link text-2xl text-gray-700 dark:text-gray-200 hover:text-gray-600 p-0" href="#">{{ $t('title') }}</router-link>
+            <router-link to="/" class="nav-link text-lg font-bold sm:text-2xl text-gray-700 dark:text-gray-200 hover:text-gray-600 p-0" href="#">{{ $t('title') }}</router-link>
           </li>
         </ul>
         <button class="navbar-toggler text-gray-500 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -42,7 +42,7 @@
         </button>
         <div class="collapse navbar-collapse flex items-center justify-center relative" id="navbarSupportedContent">
           <ul class="navbar-nav flex items-center list-style-none mr-0">
-            <li class="nav-item px-2">
+            <li class="nav-item px-2 mt-5 sm:mt-0">
               <div class="flex items-center justify-center">
                 <div class="inline-flex" role="group">
                   <button type="button" :class="{'bg-gray-100 dark:bg-gray-700': locale == 'pl'}" class="rounded-l px-6 py-2 border-2 border-blue-600 text-blue-600 font-medium text-xs leading-tight hover:bg-black hover:bg-opacity-5 focus:outline-none focus:ring-0" @click="setLang('pl')">
@@ -54,7 +54,7 @@
                 </div>
               </div>
             </li>
-            <li class="nav-item px-2">
+            <li class="nav-item px-2 mt-5 sm:mt-0">
               <button @click="toggleDark()">
                 <svg class="ml-5 mt-2 w-7 text-blue-600" v-if="!isDark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                   <path fill="currentColor" d="M283.211 512c78.962 0 151.079-35.925 198.857-94.792 7.068-8.708-.639-21.43-11.562-19.35-124.203 23.654-238.262-71.576-238.262-196.954 0-72.222 38.662-138.635 101.498-174.394 9.686-5.512 7.25-20.197-3.756-22.23A258.156 258.156 0 0 0 283.211 0c-141.309 0-256 114.511-256 256 0 141.309 114.511 256 256 256z"/>

@@ -7,7 +7,7 @@
     <footer class="text-center justify-center text-white bg-amber-50 dark:bg-gray-800">
       <div class="pt-9">
         <div class="flex justify-center mb-9">
-          <a href="#!" class="mr-9 text-gray-700 dark:text-gray-200">
+          <a href="https://www.linkedin.com/in/mateusz-błaszczak-068908217/" class="mr-9 text-gray-700 dark:text-gray-200">
             <svg
               aria-hidden="true"
               focusable="false"
@@ -24,7 +24,7 @@
               ></path>
             </svg>
           </a>
-          <a href="#!" class="text-gray-700 dark:text-gray-200">
+          <a href="https://github.com/matthewww-pl" class="text-gray-700 dark:text-gray-200">
             <svg
               aria-hidden="true"
               focusable="false"

@@ -5,7 +5,7 @@
 
 <template>
   <div>
-    <div class="relative overflow-hidden bg-no-repeat bg-auto h-96" style="background-position: 100%; background-image: url('/img/bg-1.jpg');"></div>
+    <div class="relative overflow-hidden bg-no-repeat bg-auto h-96" style="background-size: cover; background-image: url('/img/bg-1.jpg');"></div>
     <div class="mx-auto px-6 md:px-12 xl:px-32">
       <div class="text-center text-gray-800">
         <div class="block rounded-lg shadow-lg px-6 py-12 md:py-16 md:px-12" style="margin-top: -170px; background: hsla(0, 0%, 100%, 0.7); backdrop-filter: blur(30px);">
