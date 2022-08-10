@@ -7,6 +7,17 @@ index:
 search:
   error:
     'notFound': "Nie znaleziono takiego kraju, sprawdź wprowadzoną nazwę"
+  result:
+    countryName: "Kraj"
+    officialName: "Oficjalna Nazwa"
+    capital: "Stolica"
+    region: "Położenie"
+    subregion: "Dokładne Położenie"
+    area: "Powierzchnia"
+    population: "Populacja"
+    timezones: "Strefa Czasowa"
+    flag: "Flaga"
+    maps: "Link do Google Maps"
 404:
   title: "404 - Nie znaleziono strony"
   header: "404 ;/"

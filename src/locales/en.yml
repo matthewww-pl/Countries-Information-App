@@ -7,6 +7,17 @@ index:
 search:
   error:
     'notFound': "Country not found, check country name"
+  result:
+    countryName: "Country"
+    officialName: "Official Name"
+    capital: "Capital"
+    region: "Region"
+    subregion: "Subregion "
+    area: "Area"
+    population: "Population"
+    timezones: "Time Zones"
+    flag: "Flags"
+    maps: "Link to Google Maps"
 404:
   title: "404 - Page not found"
   header: "404 ;/"

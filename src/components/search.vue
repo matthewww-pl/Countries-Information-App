@@ -1,10 +1,12 @@
 <script setup lang="ts">
-  const { t } = useI18n()
+  import AutoComplete from 'primevue/autocomplete';
+  import json from '../assets/countries.json'
+
+  const { t, locale } = useI18n()
 
   const search = reactive({
-    name: null,
+    country: null,
     display: true,
-    error: false,
   })
 
   const country = reactive({
@@ -15,18 +17,31 @@
       message: ""
     })
   })
+  
+  const countries = ref(json.data)
+  const filteredCountries = ref();
 
-  const searchFunc = async () => {
-    if(search.name==null){
-      search.error = true
+  const searchList= (event: any) => {
+    setTimeout(() => {
+      if (!event.query.trim().length) {
+          filteredCountries.value = [...countries.value];
+      }else {
+          filteredCountries.value = countries.value.filter((country: any) => {
+              return country.toLowerCase().startsWith(event.query.toLowerCase());
+          });
+      }
+    }, 250);
+  };
+
+  const searchCountry = async () => {
+    if(!search.country){
       return
     }
-
-    search.error = false
     country.error.status = false
+    country.data = null
     country.loading = true
 
-    const { data, isFinished, error} = await useAxios('https://restcountries.com/v3.1/name/'+search.name)
+    const { data, isFinished, error} = await useAxios('https://restcountries.com/v3.1/name/'+search.country)
 
     country.loading = false
 
@@ -45,8 +60,8 @@
   <div class="flex justify-center">
     <div v-if="search.display">
       <div class="input-group relative flex flex-wrap items-stretch w-full mb-4">
-        <input type="search" v-model="search.name" class="form-control w-full text-3xl relative flex-auto block px-3 py-1.5 font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" :class="{'border-red-600': search.error}" :placeholder="t('index.search')" aria-label="Search" aria-describedby="button-addon2">
-        <button @click="searchFunc()" class="btn inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center" type="button" id="button-addon2">
+        <AutoComplete v-model="search.country" :suggestions="filteredCountries" @complete="searchList($event)" class="p-inputtext-lg"/>
+        <button @click="searchCountry()" class="btn inline-block px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700  focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out flex items-center" type="button" id="button-addon2">
           <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="w-4" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
             <path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"></path>
           </svg>
@@ -65,10 +80,22 @@
         <path fill="currentColor" d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm121.6 313.1c4.7 4.7 4.7 12.3 0 17L338 377.6c-4.7 4.7-12.3 4.7-17 0L256 312l-65.1 65.6c-4.7 4.7-12.3 4.7-17 0L134.4 338c-4.7-4.7-4.7-12.3 0-17l65.6-65-65.6-65.1c-4.7-4.7-4.7-12.3 0-17l39.6-39.6c4.7-4.7 12.3-4.7 17 0l65 65.7 65.1-65.6c4.7-4.7 12.3-4.7 17 0l39.6 39.6c4.7 4.7 4.7 12.3 0 17L312 256l65.6 65.1z"></path>
       </svg>
       <span v-if="country.error.message=='notFound'">{{ $t('search.error.notFound') }}</span>
-      <span v-if="country.error.message=='apiError'">{{ $t('search.error.apiError') }}</span>
     </div>
   </div>
   <div class="flex justify-center mt-20" v-if="country.data">
-    <pre>{{ country.data }}</pre>
+    <div class="flex justify-center">
+      <ul class="bg-white rounded-lg w-96 text-gray-900">
+        <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.countryName') }}: {{ locale=='en' ? country.data[0].name.common : country.data[0].translations.pol.common }}</li>
+        <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.officialName') }}: {{ locale=='en' ? country.data[0].name.official : country.data[0].translations.pol.official }}</li>
+        <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.capital') }}: {{ country.data[0].capital[0] }}</li>
+        <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.region') }}: {{ country.data[0].region }}</li>
+        <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.subregion') }}: {{ country.data[0].subregion }}</li>
+        <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.area') }}: {{ country.data[0].area }}</li>
+        <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.population') }}: {{ country.data[0].population }}</li>
+        <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.timezones') }}: {{ country.data[0].timezones }}</li>
+        <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.flag') }}: {{ country.data[0].flag }}</li>
+        <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.maps') }}: <a :href="country.data[0].maps.googleMaps">{{ country.data[0].maps.googleMaps }}</a></li>
+      </ul>
+    </div>
   </div>
 </template>
