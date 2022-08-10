@@ -84,7 +84,7 @@
   </div>
   <div class="flex justify-center mt-20" v-if="country.data">
     <div class="flex justify-center">
-      <ul class="bg-white rounded-lg text-gray-900 tracking-tight w-full">
+      <ul class="bg-white rounded-lg text-gray-900">
         <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.countryName') }}: {{ locale=='en' ? country.data[0].name.common : country.data[0].translations.pol.common }}</li>
         <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.officialName') }}: {{ locale=='en' ? country.data[0].name.official : country.data[0].translations.pol.official }}</li>
         <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.capital') }}: {{ country.data[0].capital[0] }}</li>
@@ -94,7 +94,7 @@
         <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.population') }}: {{ country.data[0].population }}</li>
         <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.timezones') }}: {{ country.data[0].timezones }}</li>
         <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.flag') }}: {{ country.data[0].flag }}</li>
-        <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.maps') }}: <a :href="country.data[0].maps.googleMaps" class="text-gray-700 hover:text-blue-500">{{ country.data[0].maps.googleMaps }}</a></li>
+        <li class="px-6 py-2 border-b border-gray-200 w-full rounded-t-lg"> {{ $t('search.result.maps') }}: <a :href="country.data[0].maps.googleMaps" class="text-blue-500 hover:text-blue-400">Link</a></li>
       </ul>
     </div>
   </div>

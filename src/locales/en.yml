@@ -17,7 +17,7 @@ search:
     population: "Population"
     timezones: "Time Zones"
     flag: "Flags"
-    maps: "Link to Google Maps"
+    maps: "Google Maps"
 404:
   title: "404 - Page not found"
   header: "404 ;/"

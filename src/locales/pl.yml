@@ -17,7 +17,7 @@ search:
     population: "Populacja"
     timezones: "Strefa Czasowa"
     flag: "Flaga"
-    maps: "Link do Google Maps"
+    maps: "Google Maps"
 404:
   title: "404 - Nie znaleziono strony"
   header: "404 ;/"
