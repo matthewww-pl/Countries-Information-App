@@ -1,6 +1,8 @@
 # Countries Information App based on my vite-vue3-starter pack
 The application is used to search for basic information about the country.
 
+Aplikacja do wyszukiwania podstawowych informacji o kraju.
+
 Demo: [link](https://ci-matpro.netlify.app/)
 
 ## Info:
