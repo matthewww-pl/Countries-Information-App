@@ -1,7 +1,7 @@
 # Countries Information App based on my vite-vue3-starter pack
 The application is used to search for basic information about the country.
 
-[Demo App](https://aquamarine-wisp-206ac7.netlify.app)
+Demo: [link](https://ci-matpro.netlify.app/)
 
 ## Info:
 - Vue3, Vite3, pnpm
